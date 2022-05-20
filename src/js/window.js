@@ -1,36 +1,55 @@
 import $ from 'jquery'
 import { sizeable } from './sizeable'
-import { draggable } from './draggable'
+import { dragable } from './dragable'
 
-const windowClasses = 'absolute border border-slate-600 rounded overflow-hidden'
-const headerClasses = 'px-4 py-2 bg-slate-600 text-white text-center cursor-default'
+const windowClasses =
+  'iris-window absolute border border-slate-600 rounded overflow-hidden z-10'
+const headerClasses =
+  'relative px-4 py-2 bg-slate-600 text-white text-center cursor-default'
 const contentClasses = 'relative p-2 bg-white text-black rounded h-full'
 
 const windowPrototype = {
   append,
   init,
   move,
-  setTitle
+  setTitle,
+  focus
 }
 
 function create (_args) {
-  const args = Object.assign({
-    title: 'Window title',
-    width: 200,
-    height: 200,
-    position: { x: 0, y: 0 }
-  }, _args)
+  const args = Object.assign(
+    {
+      title: 'Window title',
+      width: 200,
+      height: 200,
+      position: { x: 0, y: 0 },
+      sizeable: true,
+      dragable: true
+    },
+    _args
+  )
 
   const header = $('<header></header').addClass(headerClasses)
   const content = $('<div></div>').addClass(contentClasses)
-  const element = $('<div></div>').append([header, content]).addClass(windowClasses)
+  const element = $('<div></div>')
+    .append([header, content])
+    .addClass(windowClasses)
 
-  const newWindow = Object.assign(Object.create(Object.assign(windowPrototype, sizeable, draggable)), {
-    args,
-    header,
-    content,
-    element
-  })
+  const newWindow = Object.assign(
+    Object.create(
+      Object.assign(
+        windowPrototype,
+        args.sizeable ? sizeable : {},
+        args.dragable ? dragable : {}
+      )
+    ),
+    {
+      args,
+      header,
+      content,
+      element
+    }
+  )
 
   return newWindow.init()
 }
@@ -41,11 +60,24 @@ function append (childWindow) {
 }
 
 function init () {
-  this.setSize(this.args.width, this.args.height)
-  this.move(this.args.position.x, this.args.position.y)
   this.setTitle(this.args.title)
   this.content.append(this.args.content)
-  return this.initDraggable().initSizeable()
+  this.header.on('mousedown', focus.bind(this))
+  if (this.args.sizeable) {
+    this.initSizeable()
+  }
+  if (this.args.dragable) {
+    this.initDragable()
+  }
+
+  return this
+}
+
+function focus () {
+  $('.iris-window')
+    .removeClass('z-20')
+    .addClass('z-10')
+  this.element.removeClass('z-10').addClass('z-20')
 }
 
 function move (x, y) {

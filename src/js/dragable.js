@@ -2,8 +2,9 @@ import $ from 'jquery'
 
 let current
 
-function initDraggable () {
+function initDragable () {
   this.header.on('mousedown', e => beginDrag(this, e))
+  this.move(this.args.position.x, this.args.position.y)
   return this
 }
 
@@ -41,8 +42,8 @@ function drag (e) {
   e.preventDefault()
 }
 
-const draggable = {
-  initDraggable
+const dragable = {
+  initDragable
 }
 
-export { draggable }
+export { dragable }

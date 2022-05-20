@@ -18,6 +18,8 @@ function initSizeable () {
   corners.tl.on('mousedown', e => beginDrag(e, this, 'tl'))
   corners.tr.on('mousedown', e => beginDrag(e, this, 'tr'))
 
+  this.setSize(this.args.width, this.args.height)
+
   return this
 }
 

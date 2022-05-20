@@ -11,7 +11,7 @@ const modalOverlay = $('<div></div>').addClass('fixed left-0 right-0 top-0 botto
 function create (_args) {
   const newDialog = Object.assign(window.create(_args), dialogPrototype)
   newDialog.element.css({ top: '', left: '' })
-  newDialog.element.addClass('fixed mx-auto hidden z-50 top-1/2 left-1/2').css({
+  newDialog.element.removeClass('z-10').addClass('fixed mx-auto hidden z-50 top-1/2 left-1/2').css({
     'margin-left': -(_args.width / 2),
     'margin-top': -(_args.height / 2)
 
@@ -23,18 +23,27 @@ function create (_args) {
     _args.buttons.forEach(button => buttonContainer.append(button.element))
   }
 
+  newDialog.promise = new Promise((resolve, reject) => {
+    newDialog.resolve = resolve
+  })
+
   return newDialog
 }
 
 function show () {
   $('body').append(this.element).append(modalOverlay)
   this.element.removeClass('hidden')
+  return this.promise
 }
 
-function close () {
+function close (dialogResult) {
   this.element.remove()
   modalOverlay.remove()
   this.element.addClass('hidden')
+
+  this?.resolve(dialogResult)
+  this.resolve = null
+  this.promise = null
 }
 
 const dialog = {

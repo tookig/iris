@@ -4,5 +4,20 @@
 
 @tailwind utilities;
 
+@layer base {
+  .field-normal {
+    @apply text-black bg-white;
+  }
+  .field-bold {
+    @apply text-black font-bold bg-white;
+  }
+  .field-green {
+    @apply  text-white bg-green-600;
+  }
+  .field-red {
+    @apply text-red-600 bg-white;
+  }
+
+}
 
 
