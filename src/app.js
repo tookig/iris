@@ -23,53 +23,141 @@ const defaultWindows = [
     ]
   },
   {
-    title: 'Exempel 1',
+    title: 'Exempel 89',
     position: { x: 40, y: 150 },
-    width: 500,
-    height: 600,
+    width: 700,
+    height: 900,
     factory: groupWindow,
     content: '',
     children: [
       {
-        title: 'Sektion 1',
+        title: 'MIL',
         factory: section,
         children: [
           {
             factory: column,
             children: [
-              { factory: field, text: 'ABC123' },
-              { factory: field, text: 'XXXXXX', format: 'field-red' },
-              { factory: field, text: 'kja aksdj akj dajd lka' },
-              { factory: field, text: 'asdasd' },
-              { factory: field, text: 'AAWWDSD' }
+              { factory: field, text: 'M2 VSB', format: 'field-red' }
             ]
           }
         ]
       },
       {
-        title: 'Sektion 2',
+        title: 'EKDK',
         factory: section,
         children: [
           {
-            factory: column
+            factory: column,
+            children: [
+              { factory: field, text: 'EXIT PTS DK', format: 'field-green' },
+              { factory: field, text: 'VALKO', format: 'field-green' },
+              { factory: field, text: 'ARTIP', format: 'field-green' },
+              { factory: field, text: 'SUSET', format: 'field-green' },
+            ]
           },
           {
-            factory: column
+            factory: column,
+            children: [
+              { factory: field, text: 'WOODY', format: 'field-green' },
+              { factory: field, text: 'EEL', format: 'field-green' },
+              { factory: field, text: 'SURAT', format: 'field-green' }
+            ]
+          },
+          {
+            factory: column,
+            children: [
+              { factory: field, text: 'ALAMI', format: '' },
+              { factory: field, text: 'VEDEN', format: '' }
+            ]
+          },
+          {
+            factory: column,
+            children: [
+              { factory: field, text: 'A/C:', format: 'field-bold' },
+              { factory: field, text: 'EPGD: OGDAV', format: '' }
+            ]
           }
         ]
       },
       {
-        title: 'Sektion 3',
+        title: 'L',
         factory: section,
         children: [
           {
-            factory: column
+            factory: column,
+            children: [
+              { factory: field, text: 'ESMS', format: 'field-bold' },
+              { factory: field, text: '17:', format: '' },
+              { factory: field, text: 'MS546', format: 'field-green' },
+              { factory: field, text: '35:', format: '' },
+              { factory: field, text: 'MS612 (EKRAL)', format: 'field-green' },
+              { factory: field, text: 'MS611 (ROE)', format: 'field-green' }
+            ]
           },
           {
-            factory: column
+            factory: column,
+            children: [
+              { factory: field, text: 'EKCH', format: 'field-bold' },
+              { factory: field, text: 'LAMOX', format: 'field-green' }
+            ]
           },
           {
-            factory: column
+            factory: column,
+            children: [
+              { factory: field, text: 'SE EPWW', format: 'field-normal' }
+            ]
+          }
+        ]
+      },
+      {
+        title: '2/3',
+        factory: section,
+        children: [
+          {
+            factory: column,
+            children: [
+              { factory: field, text: 'ESGG', format: 'field-bold' },
+              { factory: field, text: '21:', format: '' },
+              { factory: field, text: 'GG550', format: 'field-green' },
+              { factory: field, text: '03:', format: '' },
+              { factory: field, text: 'GG630 (EKRAL)', format: 'field-green' }
+            ]
+          },
+          {
+            factory: column,
+            children: [
+              { factory: field, text: 'LUNIP', format: 'field-green' }
+            ]
+          },
+          {
+            factory: column,
+            children: [
+              { factory: field, text: 'EKDK', format: 'field-bold' },
+              { factory: field, text: 'EXIT PTS', format: 'field-green' },
+              { factory: field, text: 'VALKO', format: 'field-green' },
+              { factory: field, text: 'ARTIP', format: 'field-green' },
+              { factory: field, text: 'SUSET', format: 'field-green' },
+              { factory: field, text: 'WOODY', format: 'field-green' },
+              { factory: field, text: 'EEL', format: 'field-green' },
+              { factory: field, text: 'SURAT', format: 'field-green' }
+            ]
+          },
+          {
+            factory: column,
+            children: [
+              { factory: field, text: 'EKDK V/UV', format: 'field-bold' },
+              { factory: field, text: 'GUNPA', format: 'field-green' },
+              { factory: field, text: 'RIVEX', format: 'field-green' },
+              { factory: field, text: 'AMSEV', format: 'field-green' },
+              { factory: field, text: 'VALDI', format: 'field-green' }
+            ]
+          },
+          {
+            factory: column,
+            children: [
+              { factory: field, text: 'SE EDUU', format: 'field-normal' },
+              { factory: field, text: 'SE EDWW', format: 'field-normal' }
+            ]
           }
         ]
       }

@@ -6,18 +6,20 @@
 
 @layer base {
   .field-normal {
-    @apply text-black bg-white;
+    @apply text-black bg-white no-underline;
   }
   .field-bold {
-    @apply text-black font-bold bg-white;
+    @apply text-black font-bold bg-white no-underline;
   }
   .field-green {
-    @apply  text-white bg-green-600;
+    @apply  text-white bg-green-600 no-underline;
   }
   .field-red {
-    @apply text-red-600 bg-white;
+    @apply text-white bg-red-600 no-underline;
   }
-
+  .field-disabled {
+    @apply text-gray-400 bg-white line-through;
+  }
 }
 
 
