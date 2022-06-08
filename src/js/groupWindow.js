@@ -104,7 +104,7 @@ function onAddSection (e) {
 }
 
 function sendFieldFormat (format) {
-  $('.iris-field').trigger('fieldFormat', format)
+  $('.iris-field, .iris-column').trigger('fieldFormat', format)
 }
 
 const groupWindow = {

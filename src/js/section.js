@@ -3,7 +3,7 @@ import { column } from './column'
 import $ from 'jquery'
 
 const sectionHeaderClasses = 'relative px-4 py-1 bg-gray-300 text-black text-center cursor-default'
-const sectionWindowClasses = 'iris-window iris-section relative block overflow-hidden z-10'
+const sectionWindowClasses = 'iris-window iris-section relative block  z-10'
 const sectionContentClasses = 'p-2 bg-white text-black flex gap-1'
 
 const newGroupHtml = `

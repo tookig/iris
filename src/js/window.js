@@ -3,7 +3,7 @@ import { sizeable } from './sizeable'
 import { dragable } from './dragable'
 
 const windowClasses =
-  'iris-window absolute border border-slate-600 rounded overflow-hidden z-10'
+  'iris-window absolute border border-slate-600 rounded z-10 overflow-x-visible overflow-y-hidden '
 const headerClasses =
   'relative px-4 py-2 bg-slate-600 text-white text-center cursor-default'
 const contentClasses = 'relative p-2 bg-white text-black rounded h-full'

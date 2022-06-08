@@ -36,9 +36,19 @@ const defaultWindows = [
         children: [
           {
             factory: column,
-            children: [
-              { factory: field, text: 'M2 VSB', format: 'field-red' }
-            ]
+            content: {
+              time: 1654721838641,
+              blocks: [
+                {
+                  id: 'N1hs93gt63',
+                  type: 'paragraph',
+                  data: {
+                    text: '<span class="field-red">M2 VSB</span><br>'
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
           }
         ]
       },
@@ -48,34 +58,97 @@ const defaultWindows = [
         children: [
           {
             factory: column,
-            children: [
-              { factory: field, text: 'EXIT PTS DK', format: 'field-green' },
-              { factory: field, text: 'VALKO', format: 'field-green' },
-              { factory: field, text: 'ARTIP', format: 'field-green' },
-              { factory: field, text: 'SUSET', format: 'field-green' },
-            ]
+            content: {
+              time: 1654722186853,
+              blocks: [
+                {
+                  id: 'iqOGr_ZrA7',
+                  type: 'paragraph',
+                  data: {
+                    text: '<span class="field-green">EXIT PTS DK</span>'
+                  }
+                },
+                {
+                  id: '1bBV8H1qUR',
+                  type: 'paragraph',
+                  data: {
+                    text:
+                      '<span class="field-green">VALKO</span> <span class="field-green">ARTIP</span>'
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
           },
           {
             factory: column,
-            children: [
-              { factory: field, text: 'WOODY', format: 'field-green' },
-              { factory: field, text: 'EEL', format: 'field-green' },
-              { factory: field, text: 'SURAT', format: 'field-green' }
-            ]
+            content: {
+              time: 1654722245481,
+              blocks: [
+                {
+                  id: 'CRw6wZdrSs',
+                  type: 'paragraph',
+                  data: {
+                    text: '<span class="field-green">WOODY <br></span>'
+                  }
+                },
+                {
+                  id: 'zP43dbXVGG',
+                  type: 'paragraph',
+                  data: {
+                    text:
+                      '<span class="field-green">EEL</span> <span class="field-green">SURAT</span>'
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
           },
           {
             factory: column,
-            children: [
-              { factory: field, text: 'ALAMI', format: '' },
-              { factory: field, text: 'VEDEN', format: '' }
-            ]
+            content: {
+              time: 1654722281167,
+              blocks: [
+                {
+                  id: 'p6NaWXnmIM',
+                  type: 'paragraph',
+                  data: {
+                    text: 'ALAMI'
+                  }
+                },
+                {
+                  id: '-o_zlMeyRj',
+                  type: 'paragraph',
+                  data: {
+                    text: 'VEDEN'
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
           },
           {
             factory: column,
-            children: [
-              { factory: field, text: 'A/C:', format: 'field-bold' },
-              { factory: field, text: 'EPGD: OGDAV', format: '' }
-            ]
+            content: {
+              time: 1654722306179,
+              blocks: [
+                {
+                  id: '5G1nLicbHv',
+                  type: 'paragraph',
+                  data: {
+                    text: '<span class="field-bold">A/C:</span>'
+                  }
+                },
+                {
+                  id: '08EawMct2L',
+                  type: 'paragraph',
+                  data: {
+                    text: 'EPGD: OGDAV<br>'
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
           }
         ]
       },
@@ -85,27 +158,66 @@ const defaultWindows = [
         children: [
           {
             factory: column,
-            children: [
-              { factory: field, text: 'ESMS', format: 'field-bold' },
-              { factory: field, text: '17:', format: '' },
-              { factory: field, text: 'MS546', format: 'field-green' },
-              { factory: field, text: '35:', format: '' },
-              { factory: field, text: 'MS612 (EKRAL)', format: 'field-green' },
-              { factory: field, text: 'MS611 (ROE)', format: 'field-green' }
-            ]
+            content: {
+              time: 1654723345020,
+              blocks: [
+                {
+                  id: 'jHjNEzpDO8',
+                  type: 'paragraph',
+                  data: {
+                    text: '<span class="field-bold">ESMS:</span> '
+                  }
+                },
+                {
+                  id: 'LxlFm61xk3',
+                  type: 'paragraph',
+                  data: {
+                    text:
+                      '17: <span class="field-green">MS546</span> <br>35: <span class="field-green">MS612</span>  (EKRAL)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="field-green">MS611</span>  (ROE)'
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
           },
           {
             factory: column,
-            children: [
-              { factory: field, text: 'EKCH', format: 'field-bold' },
-              { factory: field, text: 'LAMOX', format: 'field-green' }
-            ]
+            content: {
+              time: 1654723425620,
+              blocks: [
+                {
+                  id: '9wkdIXPsz3',
+                  type: 'paragraph',
+                  data: {
+                    text: '<span class="field-bold">EKCH:</span> '
+                  }
+                },
+                {
+                  id: 's4KL_V6UAs',
+                  type: 'paragraph',
+                  data: {
+                    text: '<span class="field-green">LAMOX</span> <br>'
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
           },
           {
             factory: column,
-            children: [
-              { factory: field, text: 'SE EPWW', format: 'field-normal' }
-            ]
+            content: {
+              time: 1654723459106,
+              blocks: [
+                {
+                  id: 'WLvyn0cToY',
+                  type: 'paragraph',
+                  data: {
+                    text: 'SE EPWW<br>'
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
           }
         ]
       },
@@ -115,49 +227,158 @@ const defaultWindows = [
         children: [
           {
             factory: column,
-            children: [
-              { factory: field, text: 'ESGG', format: 'field-bold' },
-              { factory: field, text: '21:', format: '' },
-              { factory: field, text: 'GG550', format: 'field-green' },
-              { factory: field, text: '03:', format: '' },
-              { factory: field, text: 'GG630 (EKRAL)', format: 'field-green' }
-            ]
+            content: {
+              time: 1654723753581,
+              blocks: [
+                {
+                  id: 'WG9Oyri8KK',
+                  type: 'paragraph',
+                  data: {
+                    text: '<span class="field-bold">ESGG</span> '
+                  }
+                },
+                {
+                  id: 'fQI6UUxbnw',
+                  type: 'paragraph',
+                  data: {
+                    text: '21: <span class="field-green">GG550</span> '
+                  }
+                },
+                {
+                  id: '01-bLYPhMk',
+                  type: 'paragraph',
+                  data: {
+                    text: '03: <span class="field-green">GG630</span> <br>'
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
           },
           {
             factory: column,
-            children: [
-              { factory: field, text: 'LUNIP', format: 'field-green' }
-            ]
+            content: {
+              time: 1654723971084,
+              blocks: [
+                {
+                  id: 'qRNMZuoyM2',
+                  type: 'paragraph',
+                  data: {
+                    text: ' '
+                  }
+                },
+                {
+                  id: 'qRNMZuoyM0',
+                  type: 'paragraph',
+                  data: {
+                    text: '<span class="field-green">LUNIP</span> '
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
           },
           {
             factory: column,
-            children: [
-              { factory: field, text: 'EKDK', format: 'field-bold' },
-              { factory: field, text: 'EXIT PTS', format: 'field-green' },
-              { factory: field, text: 'VALKO', format: 'field-green' },
-              { factory: field, text: 'ARTIP', format: 'field-green' },
-              { factory: field, text: 'SUSET', format: 'field-green' },
-              { factory: field, text: 'WOODY', format: 'field-green' },
-              { factory: field, text: 'EEL', format: 'field-green' },
-              { factory: field, text: 'SURAT', format: 'field-green' }
-            ]
+            content: {
+              time: 1654724007869,
+              blocks: [
+                {
+                  id: 'WOYDBDSctf',
+                  type: 'paragraph',
+                  data: {
+                    text: '<span class="field-bold">EKDK</span> '
+                  }
+                },
+                {
+                  id: 'mYEUbcCNzd',
+                  type: 'paragraph',
+                  data: {
+                    text: '<span class="field-green">EXIT PTS</span> '
+                  }
+                },
+                {
+                  id: 'i0YHRcHL8u',
+                  type: 'paragraph',
+                  data: {
+                    text:
+                      '<span class="field-green">VALKO</span>  <span class="field-green">ARTIP</span> '
+                  }
+                },
+                {
+                  id: 'otK_8RRyJf',
+                  type: 'paragraph',
+                  data: {
+                    text:
+                      '<span class="field-green">SUSET</span>  <span class="field-green">WOODY</span> '
+                  }
+                },
+                {
+                  id: 'aC_MxGYN1F',
+                  type: 'paragraph',
+                  data: {
+                    text:
+                      '<span class="field-green">EEL</span>  <span class="field-green">SURAT</span> '
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
           },
           {
             factory: column,
-            children: [
-              { factory: field, text: 'EKDK V/UV', format: 'field-bold' },
-              { factory: field, text: 'GUNPA', format: 'field-green' },
-              { factory: field, text: 'RIVEX', format: 'field-green' },
-              { factory: field, text: 'AMSEV', format: 'field-green' },
-              { factory: field, text: 'VALDI', format: 'field-green' }
-            ]
+            content: {
+              time: 1654724080849,
+              blocks: [
+                {
+                  id: '9RpgDRgrXU',
+                  type: 'paragraph',
+                  data: {
+                    text: '<span class="field-bold">EKDK V/UV</span> '
+                  }
+                },
+                {
+                  id: 'I4EC6M3mt9',
+                  type: 'paragraph',
+                  data: {
+                    text:
+                      '<span class="field-green">GUNPA</span>  <span class="field-green">RIVEX</span> '
+                  }
+                },
+                {
+                  id: 'vNX4O06fey',
+                  type: 'paragraph',
+                  data: {
+                    text:
+                      '<span class="field-green">AMSEV</span>  <span class="field-green">VALDI</span> '
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
           },
           {
             factory: column,
-            children: [
-              { factory: field, text: 'SE EDUU', format: 'field-normal' },
-              { factory: field, text: 'SE EDWW', format: 'field-normal' }
-            ]
+            content: {
+              time: 1654724165038,
+              blocks: [
+                {
+                  id: 'jMClBSWIWb',
+                  type: 'paragraph',
+                  data: {
+                    text: 'SE EDUU'
+                  }
+                },
+                {
+                  id: 'VzX0ttWRgc',
+                  type: 'paragraph',
+                  data: {
+                    text: 'SE EDWW'
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
           }
         ]
       }

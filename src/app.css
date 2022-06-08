@@ -6,20 +6,27 @@
 
 @layer base {
   .field-normal {
-    @apply text-black bg-white no-underline;
+    @apply text-black bg-white font-normal no-underline mb-1;
   }
   .field-bold {
-    @apply text-black font-bold bg-white no-underline;
+    @apply text-black font-bold bg-white no-underline mb-1;
   }
   .field-green {
-    @apply  text-white bg-green-600 no-underline;
+    @apply  text-white bg-green-600 font-normal no-underline p-1 rounded-sm;
   }
   .field-red {
-    @apply text-white bg-red-600 no-underline;
+    @apply text-white bg-red-600 font-normal no-underline p-1 rounded-sm;
   }
   .field-disabled {
-    @apply text-gray-400 bg-white line-through;
+    @apply text-gray-400 bg-white font-normal line-through mb-1;
   }
 }
 
+.ce-toolbar {
+  display: none !important;
+}
 
+.codex-editor__redactor {
+  padding-bottom: 20px !important;
+  margin-right: 5px !important;
+}
