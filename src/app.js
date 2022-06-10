@@ -25,7 +25,7 @@ const defaultWindows = [
   {
     title: 'Exempel 89',
     position: { x: 40, y: 150 },
-    width: 700,
+    width: 600,
     height: 900,
     factory: groupWindow,
     content: '',
@@ -374,6 +374,233 @@ const defaultWindows = [
                   type: 'paragraph',
                   data: {
                     text: 'SE EDWW'
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    title: 'Exempel TMA',
+    position: { x: 700, y: 150 },
+    width: 400,
+    height: 800,
+    factory: groupWindow,
+    content: '',
+    children: [
+      {
+        title: 'ESSA',
+        factory: section,
+        children: [
+          {
+            factory: column,
+            content: {
+              time: 1654844759898,
+              blocks: [
+                {
+                  id: 'YDGwK1IFk3',
+                  type: 'paragraph',
+                  data: {
+                    text: '2.5/3.5'
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
+          }
+        ]
+      },
+      {
+        title: 'ESSB',
+        factory: section,
+        children: [
+          {
+            factory: column,
+            content: {
+              time: 1654844794814,
+              blocks: [
+                {
+                  id: 'jgBhoGFRQ2',
+                  type: 'paragraph',
+                  data: {
+                    text: 'TRS SID<br>'
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
+          }
+        ]
+      },
+      {
+        title: 'Sektorer',
+        factory: section,
+        children: [
+          {
+            factory: column,
+            content: {
+              time: 1654844409678,
+              blocks: [
+                {
+                  id: 'kMgr5k4j17',
+                  type: 'paragraph',
+                  data: {
+                    text:
+                      '<span class="field-bold">2:</span>  <br><span class="field-bold">4:</span>  EÖH<br><span class="field-bold">6:</span> <br><span class="field-bold">8:</span> '
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
+          }
+        ]
+      },
+      {
+        title: 'Vind',
+        factory: section,
+        children: [
+          {
+            factory: column,
+            content: {
+              time: 1654844100603,
+              blocks: [
+                {
+                  id: 'E23G-duMF1',
+                  type: 'paragraph',
+                  data: {
+                    text: '5.0: 210/35<br>2.5: 230/20<br>1.5: 235/5<br>'
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
+          }
+        ]
+      },
+      {
+        title: 'Övrigt',
+        factory: section,
+        children: [
+          {
+            factory: column,
+            content: {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    title: 'Exempel Y',
+    position: { x: 1150, y: 150 },
+    width: 400,
+    height: 800,
+    factory: groupWindow,
+    content: '',
+    children: [
+      {
+        title: '1',
+        factory: section,
+        children: [
+          {
+            factory: column,
+            content: {
+              time: 1654844934072,
+              blocks: [
+                {
+                  id: 'YDGwK1IFk3',
+                  type: 'paragraph',
+                  data: {
+                    text: 'MICOS ALS<br>DEMIR fr ÖKC 285+<br>'
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
+          }
+        ]
+      },
+      {
+        title: '2',
+        factory: section,
+        children: [
+          {
+            factory: column,
+            content: {}
+          }
+        ]
+      },
+      {
+        title: '6',
+        factory: section,
+        children: [
+          {
+            factory: column,
+            content: {
+              time: 1654845084811,
+              blocks: [
+                {
+                  id: 'ecVfhjKLVX',
+                  type: 'paragraph',
+                  data: {
+                    text: 'ERNOV MICOS ALS DEMIR<br>SV M1<br>'
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
+          }
+        ]
+      },
+      {
+        title: '7',
+        factory: section,
+        children: [
+          {
+            factory: column,
+            content: {
+              time: 1654845097149,
+              blocks: [
+                {
+                  id: 'GQ9KdTuyt-',
+                  type: 'paragraph',
+                  data: {
+                    text: 'MICOS NORVI/MS500 285+<br>'
+                  }
+                }
+              ],
+              version: '2.24.3'
+            }
+          }
+        ]
+      },
+      {
+        title: '9',
+        factory: section,
+        children: [
+          {
+            factory: column,
+            content: {}
+          }
+        ]
+      },
+      {
+        title: 'Övrigt',
+        factory: section,
+        children: [
+          {
+            factory: column,
+            content: {
+              time: 1654845107768,
+              blocks: [
+                {
+                  id: 'zEF1nu31jr',
+                  type: 'paragraph',
+                  data: {
+                    text: 'ATIS ESSA U/R<br>'
                   }
                 }
               ],

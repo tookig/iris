@@ -100,7 +100,7 @@ function create (_args) {
         inlineToolbar: true
       }
     },
-    data: _args.content
+    data: _args?.content || {}
   })
 
   newWindow.element.on('fieldFormat', setFormat.bind(newWindow))
