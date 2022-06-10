@@ -6,7 +6,7 @@ import { button } from './button'
 import $ from 'jquery'
 
 const buttonsRowClasses = 'hidden'
-const groupContentClasses = 'bg-white text-black rounded h-full'
+const groupContentClasses = 'bg-zinc-100 text-black rounded h-full'
 
 const groupRowClasses = 'relative flex flex-col'
 const groupFreeClasses = 'absolute'
@@ -30,7 +30,7 @@ const editHtml = `
 `
 
 const rowButtonHtml = `
-<a href='#' class='p-1 absolute left-1 top-1 border border-transparent rounded hover:border-gray-400 hover:bg-gray-500'>
+<a href='#' class='group-row-button hidden p-1 absolute left-1 top-1 border border-transparent rounded hover:border-gray-400 hover:bg-gray-500'>
   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 16 16">
     <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
   </svg>
@@ -38,7 +38,7 @@ const rowButtonHtml = `
 `
 
 const freeButtonHtml = `
-<a href='#' class='p-1 absolute left-7 top-1 border border-transparent rounded hover:border-gray-400 hover:bg-gray-500'>
+<a href='#' class='group-free-button p-1 absolute left-1 top-1 border border-transparent rounded hover:border-gray-400 hover:bg-gray-500'>
   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 16 16">
     <path d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z"/>
   </svg>
@@ -101,12 +101,16 @@ function create (_args) {
     e.preventDefault()
     newWindow.element.addClass(groupRowClasses).removeClass(groupFreeClasses)
     newWindow.args.childWindows.forEach(child => child.makeRow())
+    newWindow.element.find('.group-row-button ').addClass('hidden')
+    newWindow.element.find('.group-free-button ').removeClass('hidden')
   })
 
   freeButton.on('click', e => {
     e.preventDefault()
     newWindow.element.addClass(groupFreeClasses).removeClass(groupRowClasses)
     newWindow.args.childWindows.forEach(child => child.makeFree())
+    newWindow.element.find('.group-row-button ').removeClass('hidden')
+    newWindow.element.find('.group-free-button ').addClass('hidden')
   })
 
   newWindow.header.append([
