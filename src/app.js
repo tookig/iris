@@ -373,7 +373,7 @@ const defaultWindows = [
                   id: 'VzX0ttWRgc',
                   type: 'paragraph',
                   data: {
-                    text: 'SE EDWW'
+                    text: 'SE EPWW'
                   }
                 }
               ],
