@@ -9,6 +9,8 @@ function initDragable () {
 }
 
 function beginDrag (window, e) {
+  if (!window.args.dragable) return
+
   e.preventDefault()
   $('body').on('mouseup', endDrag)
   $('body').on('mouseleave', endDrag)

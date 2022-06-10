@@ -6,7 +6,11 @@ import { button } from './button'
 import $ from 'jquery'
 
 const buttonsRowClasses = 'hidden'
-const groupContentClasses = 'flex flex-col bg-white text-black rounded h-full'
+const groupContentClasses = 'bg-white text-black rounded h-full'
+
+const groupRowClasses = 'relative flex flex-col'
+const groupFreeClasses = 'absolute'
+
 const editPenClasses = 'bg-amber-200 hover:bg-amber-300 text-amber-500'
 
 const newSectionHtml = `
@@ -21,6 +25,22 @@ const editHtml = `
 <a href='#' class='p-1 absolute right-1 top-1 border border-transparent rounded hover:border-gray-400 hover:bg-gray-500'>
   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 16 16">
     <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+  </svg>
+</a>
+`
+
+const rowButtonHtml = `
+<a href='#' class='p-1 absolute left-1 top-1 border border-transparent rounded hover:border-gray-400 hover:bg-gray-500'>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+  </svg>
+</a>
+`
+
+const freeButtonHtml = `
+<a href='#' class='p-1 absolute left-7 top-1 border border-transparent rounded hover:border-gray-400 hover:bg-gray-500'>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 16 16">
+    <path d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z"/>
   </svg>
 </a>
 `
@@ -74,13 +94,30 @@ function create (_args) {
     isEditing = !isEditing
   })
 
+  const rowButton = $(rowButtonHtml)
+  const freeButton = $(freeButtonHtml)
+
+  rowButton.on('click', e => {
+    e.preventDefault()
+    newWindow.element.addClass(groupRowClasses).removeClass(groupFreeClasses)
+    newWindow.args.childWindows.forEach(child => child.makeRow())
+  })
+
+  freeButton.on('click', e => {
+    e.preventDefault()
+    newWindow.element.addClass(groupFreeClasses).removeClass(groupRowClasses)
+    newWindow.args.childWindows.forEach(child => child.makeFree())
+  })
+
   newWindow.header.append([
     editButton,
+    rowButton,
+    freeButton,
     newSection,
     buttonsRow
   ])
 
-  newWindow.content.removeClass().addClass(groupContentClasses)
+  newWindow.content.removeClass().addClass(groupContentClasses).addClass(groupRowClasses)
 
   return newWindow
 }

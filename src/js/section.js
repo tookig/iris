@@ -2,8 +2,13 @@ import { window } from './window'
 import { column } from './column'
 import $ from 'jquery'
 
-const sectionHeaderClasses = 'relative px-4 py-1 bg-gray-300 text-black text-center cursor-default'
-const sectionWindowClasses = 'iris-window iris-section relative block  z-10'
+const sectionHeaderClasses =
+  'relative px-4 py-1 bg-gray-300 text-black text-center cursor-default'
+const sectionWindowClasses = 'iris-window iris-section block  z-10'
+
+const sectionRowClasses = 'relative'
+const sectionFreeClasses = 'absolute'
+
 const sectionContentClasses = 'p-2 bg-white text-black flex gap-1'
 
 const newGroupHtml = `
@@ -25,12 +30,20 @@ const removeGroupHtml = `
 `
 
 function create (_args) {
-  const newWindow = window.create(Object.assign(_args || {}, {
-    sizeable: false,
-    dragable: false
-  }))
+  const newWindow = window.create(
+    Object.assign(_args || {}, {
+      dragable: false,
+      sizeable: false
+    })
+  )
 
-  newWindow.element.removeClass().addClass(sectionWindowClasses)
+  newWindow.makeFree = makeFree.bind(newWindow)
+  newWindow.makeRow = makeRow.bind(newWindow)
+
+  newWindow.element
+    .removeClass()
+    .addClass(sectionWindowClasses)
+    .addClass(sectionRowClasses)
   newWindow.header.removeClass().addClass(sectionHeaderClasses)
   newWindow.content.removeClass().addClass(sectionContentClasses)
 
@@ -45,8 +58,7 @@ function create (_args) {
   newWindow.element.on('beginEdit', (action, field) => {
     lastEditField = field
   })
-  newWindow.element.on('endEdit', () => {
-  })
+  newWindow.element.on('endEdit', () => {})
 
   const createGroup = $(newGroupHtml).on('click', () => {
     newWindow.append(column.create())
@@ -56,15 +68,35 @@ function create (_args) {
   })
   newWindow.header.append(createGroup, removeGroup)
 
-  newWindow.element.on('enableEditing', () => {
-    createGroup.removeClass('hidden')
-    removeGroup.removeClass('hidden')
-  }).on('disableEditing', () => {
-    createGroup.addClass('hidden')
-    removeGroup.addClass('hidden')
-  })
+  newWindow.element
+    .on('enableEditing', () => {
+      createGroup.removeClass('hidden')
+      removeGroup.removeClass('hidden')
+    })
+    .on('disableEditing', () => {
+      createGroup.addClass('hidden')
+      removeGroup.addClass('hidden')
+    })
 
   return newWindow
+}
+
+function makeFree () {
+  this.element.addClass(sectionFreeClasses).removeClass(sectionRowClasses)
+  this.args.dragable = true
+  this.args.sizeable = true
+}
+
+function makeRow () {
+  this.element.addClass(sectionRowClasses).removeClass(sectionFreeClasses)
+  this.args.dragable = false
+  this.args.sizeable = false
+  this.element.css({
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0
+  })
 }
 
 const section = {

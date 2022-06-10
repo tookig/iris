@@ -39,6 +39,8 @@ function setWidth (height) {
 }
 
 function beginDrag (e, window, corner) {
+  if (!window.args.sizeable) return
+
   e.preventDefault()
 
   current = {

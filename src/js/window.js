@@ -3,7 +3,7 @@ import { sizeable } from './sizeable'
 import { dragable } from './dragable'
 
 const windowClasses =
-  'iris-window absolute border border-slate-600 rounded z-10 overflow-x-visible overflow-y-hidden '
+  'iris-window absolute border border-slate-600 rounded z-10 overflow-x-visible overflow-y-hidden bg-zinc-100'
 const headerClasses =
   'relative px-4 py-2 bg-slate-600 text-white text-center cursor-default'
 const contentClasses = 'relative p-2 bg-white text-black rounded h-full'
@@ -24,7 +24,8 @@ function create (_args) {
       height: 200,
       position: { x: 0, y: 0 },
       sizeable: true,
-      dragable: true
+      dragable: true,
+      childWindows: []
     },
     _args
   )
@@ -39,8 +40,8 @@ function create (_args) {
     Object.create(
       Object.assign(
         windowPrototype,
-        args.sizeable ? sizeable : {},
-        args.dragable ? dragable : {}
+        sizeable,
+        dragable
       )
     ),
     {
@@ -56,6 +57,7 @@ function create (_args) {
 
 function append (childWindow) {
   this.content.append(childWindow.element)
+  this.args.childWindows.push(childWindow)
   return this
 }
 
@@ -63,13 +65,8 @@ function init () {
   this.setTitle(this.args.title)
   this.content.append(this.args.content)
   this.header.on('mousedown', focus.bind(this))
-  if (this.args.sizeable) {
-    this.initSizeable()
-  }
-  if (this.args.dragable) {
-    this.initDragable()
-  }
-
+  this.initSizeable()
+  this.initDragable()
   return this
 }
 
