@@ -4,10 +4,10 @@ let current
 
 function initSizeable () {
   const corners = {
-    tl: $('<div></div>').addClass('absolute w-2 h-2 bg-transparent left-0 top-0 z-50 cursor-nw-resize'),
-    tr: $('<div></div>').addClass('absolute w-2 h-2 bg-transparent right-0 top-0 z-50 cursor-ne-resize'),
-    bl: $('<div></div>').addClass('absolute w-2 h-2 bg-transparent left-0 bottom-0 z-50 cursor-sw-resize'),
-    br: $('<div></div>').addClass('absolute w-2 h-2 bg-transparent right-0 bottom-0 z-50 cursor-se-resize')
+    tl: $('<div></div>').addClass('absolute w-4 h-4 bg-transparent left-0 top-0 z-50 cursor-nw-resize'),
+    tr: $('<div></div>').addClass('absolute w-4 h-4 bg-transparent right-0 top-0 z-50 cursor-ne-resize'),
+    bl: $('<div></div>').addClass('absolute w-4 h-4 bg-transparent left-0 bottom-0 z-50 cursor-sw-resize'),
+    br: $('<div></div>').addClass('absolute w-4 h-4 bg-transparent right-0 bottom-0 z-50 cursor-se-resize')
   }
 
   this.element.append([corners.bl, corners.br, corners.tl, corners.tr])
