@@ -65,8 +65,12 @@ function init () {
   this.setTitle(this.args.title)
   this.content.append(this.args.content)
   this.header.on('mousedown', focus.bind(this))
-  this.initSizeable()
-  this.initDragable()
+  if (this.args.sizeable) {
+    this.initSizeable()
+  }
+  if (this.args.dragable) {
+    this.initDragable()
+  }
   return this
 }
 

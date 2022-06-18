@@ -4,12 +4,13 @@ import $ from 'jquery'
 
 const sectionHeaderClasses =
   'relative px-4 py-1 bg-gray-300 text-black text-center cursor-default'
-const sectionWindowClasses = 'iris-window iris-section block  z-10'
+const sectionWindowClasses =
+  'iris-window iris-section block z-10 overflow-hidden'
 
 const sectionRowClasses = 'relative'
 const sectionFreeClasses = 'absolute'
 
-const sectionContentClasses = 'p-2 bg-white text-black flex gap-1'
+const sectionContentClasses = 'p-2 bg-white text-black flex gap-1 h-full'
 
 const newGroupHtml = `
 <a href='#' class='absolute hidden right-1 top-1 border border-transparent rounded hover:border-gray-100 hover:bg-gray-200'>
@@ -31,11 +32,25 @@ const removeGroupHtml = `
 
 function create (_args) {
   const newWindow = window.create(
-    Object.assign(_args || {}, {
-      dragable: false,
-      sizeable: false
-    })
+    Object.assign(
+      {
+        freePos: {
+          x: 0,
+          y: 0,
+          w: 100,
+          h: 100
+        }
+      },
+      _args,
+      {
+        dragable: false,
+        sizeable: false
+      }
+    )
   )
+
+  newWindow.initSizeable()
+  newWindow.initDragable()
 
   newWindow.makeFree = makeFree.bind(newWindow)
   newWindow.makeRow = makeRow.bind(newWindow)
@@ -85,6 +100,8 @@ function makeFree () {
   this.element.addClass(sectionFreeClasses).removeClass(sectionRowClasses)
   this.args.dragable = true
   this.args.sizeable = true
+  this.move(this.args.freePos.x, this.args.freePos.y)
+  this.setSize(this.args.freePos.w, this.args.freePos.h)
 }
 
 function makeRow () {

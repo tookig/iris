@@ -6,7 +6,6 @@ import { button } from './js/button'
 import { inputDialog } from './js/inputDialog'
 import { section } from './js/section'
 import { column } from './js/column'
-import { field } from './js/field'
 
 const mainDesktop = desktop.create()
 
@@ -26,13 +25,14 @@ const defaultWindows = [
     title: 'Exempel 89',
     position: { x: 40, y: 150 },
     width: 600,
-    height: 900,
+    height: 900, 
     factory: groupWindow,
     content: '',
     children: [
       {
         title: 'MIL',
         factory: section,
+        freePos: { x: 370, y: 350, w: 370, h: 150 },
         children: [
           {
             factory: column,
@@ -55,6 +55,7 @@ const defaultWindows = [
       {
         title: 'EKDK',
         factory: section,
+        freePos: { x: 2, y: 230, w: 340, h: 280 },
         children: [
           {
             factory: column,
@@ -155,6 +156,7 @@ const defaultWindows = [
       {
         title: 'L',
         factory: section,
+        freePos: { x: 2, y: 2, w: 340, h: 220 },
         children: [
           {
             factory: column,
@@ -224,6 +226,7 @@ const defaultWindows = [
       {
         title: '2/3',
         factory: section,
+        freePos: { x: 370, y: 2, w: 370, h: 340 },
         children: [
           {
             factory: column,
