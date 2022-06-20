@@ -92,6 +92,14 @@ function create (_args) {
       createGroup.addClass('hidden')
       removeGroup.addClass('hidden')
     })
+    .on('endDrag', (e, pos) => {
+      newWindow.args.freePos.x = pos.x
+      newWindow.args.freePos.y = pos.y
+    })
+    .on('endSize', (e, size) => {
+      newWindow.args.freePos.w = size.width
+      newWindow.args.freePos.h = size.height
+    })
 
   return newWindow
 }
@@ -112,7 +120,9 @@ function makeRow () {
     top: 0,
     left: 0,
     right: 0,
-    bottom: 0
+    bottom: 0,
+    width: '',
+    height: ''
   })
 }
 

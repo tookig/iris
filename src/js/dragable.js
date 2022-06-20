@@ -25,6 +25,11 @@ function beginDrag (window, e) {
 function endDrag (e) {
   e.preventDefault()
   $('body').off('mouseup', endDrag).off('mouseleave', endDrag).off('mousemove', drag)
+  const pos = current.window.element.position()
+  current.window.element.trigger('endDrag', {
+    x: pos.left,
+    y: pos.top
+  })
   current = null
 }
 

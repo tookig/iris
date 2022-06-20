@@ -54,7 +54,10 @@ function beginDrag (e, window, corner) {
 
 function endDrag (e) {
   e.preventDefault()
-
+  current.window.element.trigger('endSize', {
+    width: current.window.element.outerWidth(),
+    height: current.window.element.outerHeight()
+  })
   current = null
   $('body').off('mouseup', endDrag).off('mouseleave', endDrag).off('mousemove', drag)
 }
