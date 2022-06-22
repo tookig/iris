@@ -52,7 +52,6 @@ class MarkerTool {
   }
 
   surround (range) {
-    console.log('surround', this.state)
     /*
     if (this.state) {
       this.unwrap(range)
@@ -63,8 +62,6 @@ class MarkerTool {
   }
 
   wrap (range) {
-    console.log('wrap')
-
     let mark = this.api.selection.findParentTag(this.tag)
     // const selectedText = range.extractContents()
     const selectedText = mark ? new Text(mark.innerText) : range.extractContents()
@@ -106,10 +103,8 @@ class MarkerTool {
   checkState () {
     const mark = this.api.selection.findParentTag(this.tag)
 
-    console.log(this.api.selection)
 
     this.state = !!mark
-    console.log('checkState', this.state)
   }
 }
 

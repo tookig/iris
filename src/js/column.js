@@ -29,6 +29,7 @@ function create (_args) {
 
   newWindow.editor = new EditorJS({
     holder: newWindow.editArea.get(0),
+    inlineToolbar: false,
     tools: {
       italic: {
         inlineToolbar: false
@@ -116,15 +117,49 @@ function create (_args) {
 }
 
 function setFormat (e, format) {
+  // Determine if we are in this column
   const selection = window.getSelection()
   if (
     !selection.anchorNode ||
     this.element.has(selection.anchorNode).length < 1 ||
-    selection.type !== 'Range'
+    selection.type !== 'Range' ||
+    this.editor.blocks.getCurrentBlockIndex() < 0
   ) {
     return
   }
 
+  const range = selection.getRangeAt(0)
+  console.log(selection.type)
+
+  const tag = 'SPAN'
+  let mark = this.editor.selection.findParentTag(tag)
+
+  // const selectedText = range.extractContents()
+  const selectedText = mark ? new Text(mark.innerText) : range.extractContents()
+
+  if (mark?.classList.contains(format)) {
+    // Remove span
+    mark.remove()
+    range.insertNode(selectedText)
+    return
+  }
+
+  if (mark) {
+    mark.remove()
+  }
+  mark = document.createElement(tag)
+
+  // this.class.split(' ').forEach(c => mark.classList.add(c))
+  mark.classList.add(format)
+  mark.appendChild(selectedText)
+  range.insertNode(new Text(' '))
+  range.insertNode(mark)
+
+  this.editor.selection.expandToTag(mark)
+
+
+  
+  /*
   const range = selection.getRangeAt(0)
   const offset = range.startOffset
   const node = range.startContainer
@@ -138,6 +173,7 @@ function setFormat (e, format) {
     node.childNodes[offset]
   ))
   console.log(offset)
+  */
   // $('<span></span>').append(fragment).addClass(format).appendTo(this.editArea)
 
   // const extracted = selection.getRangeAt(0).extractContent()
