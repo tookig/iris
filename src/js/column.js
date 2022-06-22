@@ -1,3 +1,5 @@
+/* global Text */
+
 import { window as irisWindow } from './window'
 import $ from 'jquery'
 import EditorJS from '@editorjs/editorjs'
@@ -156,68 +158,10 @@ function setFormat (e, format) {
   range.insertNode(mark)
 
   this.editor.selection.expandToTag(mark)
-
-
-  
-  /*
-  const range = selection.getRangeAt(0)
-  const offset = range.startOffset
-  const node = range.startContainer
-  // console.log(range)
-  const fragment = range.extractContents()
-  console.log(fragment)
-  const items = []
-  fragment.childNodes.forEach(f => items.push(f.innerText || f.textContent))
-  items.filter(i => i).forEach(i => node.parentNode.insertBefore(
-    $('<span></span>').text(i).addClass(format).get(0),
-    node.childNodes[offset]
-  ))
-  console.log(offset)
-  */
-  // $('<span></span>').append(fragment).addClass(format).appendTo(this.editArea)
-
-  // const extracted = selection.getRangeAt(0).extractContent()
-
-  // console.log(selection.getRangeAt(0))
 }
 
 function addField (baseFunction) {
   return field => {}
-}
-
-function getSelectionHtml () {
-  let html = ''
-  if (typeof window.getSelection !== 'undefined') {
-    const sel = window.getSelection()
-    if (sel.rangeCount) {
-      const container = document.createElement('div')
-      for (var i = 0, len = sel.rangeCount; i < len; ++i) {
-        container.appendChild(sel.getRangeAt(i).cloneContents())
-      }
-      html = container.innerHTML
-    }
-  } else if (typeof document.selection != 'undefined') {
-    if (document.selection.type == 'Text') {
-      html = document.selection.createRange().htmlText
-    }
-  }
-  return html
-}
-
-function getCaretIndex (element) {
-  let position = 0
-  const isSupported = typeof window.getSelection !== 'undefined'
-  if (isSupported) {
-    const selection = window.getSelection()
-    if (selection.rangeCount !== 0) {
-      const range = window.getSelection().getRangeAt(0)
-      const preCaretRange = range.cloneRange()
-      preCaretRange.selectNodeContents(element)
-      preCaretRange.setEnd(range.endContainer, range.endOffset)
-      position = preCaretRange.toString().length
-    }
-  }
-  return position
 }
 
 const column = {
