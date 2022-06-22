@@ -21,7 +21,7 @@ class MarkerTool {
     this.button = null
     this._state = false
 
-    this.tag = 'span'
+    this.tag = 'SPAN'
     this.class = this.config.classes
   }
 
@@ -52,19 +52,37 @@ class MarkerTool {
   }
 
   surround (range) {
+    console.log('surround', this.state)
+    /*
     if (this.state) {
       this.unwrap(range)
       return
     }
-
+    */
     this.wrap(range)
   }
 
   wrap (range) {
-    const selectedText = range.extractContents()
-    const mark = document.createElement(this.tag)
+    console.log('wrap')
 
-    this.class.split(' ').forEach(c => mark.classList.add(c))
+    let mark = this.api.selection.findParentTag(this.tag)
+    // const selectedText = range.extractContents()
+    const selectedText = mark ? new Text(mark.innerText) : range.extractContents()
+
+    if (mark?.classList.contains(this.class)) {
+      // Remove span
+      mark.remove()
+      range.insertNode(selectedText)
+      return
+    }
+
+    if (mark) {
+      mark.remove()
+    }
+    mark = document.createElement(this.tag)
+
+    // this.class.split(' ').forEach(c => mark.classList.add(c))
+    mark.classList.add(this.class)
     mark.appendChild(selectedText)
     range.insertNode(new Text(' '))
     range.insertNode(mark)
@@ -72,19 +90,26 @@ class MarkerTool {
     this.api.selection.expandToTag(mark)
   }
 
+  /*
   unwrap (range) {
-    const mark = this.api.selection.findParentTag(this.tag, this.class)
+    console.log('unwrap')
+
+    const mark = this.api.selection.findParentTag(this.tag)
     const text = range.extractContents()
 
     mark.remove()
 
     range.insertNode(text)
   }
+  */
 
   checkState () {
     const mark = this.api.selection.findParentTag(this.tag)
 
+    console.log(this.api.selection)
+
     this.state = !!mark
+    console.log('checkState', this.state)
   }
 }
 

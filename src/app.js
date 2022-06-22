@@ -6,6 +6,7 @@ import { button } from './js/button'
 import { inputDialog } from './js/inputDialog'
 import { section } from './js/section'
 import { column } from './js/column'
+import Alpine from 'alpinejs'
 
 const mainDesktop = desktop.create()
 
@@ -644,7 +645,9 @@ function defaultCreate (w, parent) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  mainDesktop.element.appendTo('body')
+  window.Alpine = Alpine
+  Alpine.start()
 
+  mainDesktop.element.appendTo('body')
   defaultWindows.forEach(w => defaultCreate(w, mainDesktop))
 })
